@@ -17,6 +17,9 @@ class AuthController extends Controller
             'tipoConta' => 'required|string'
         ]);
 
+        $user = Auth::user();
+        if ($user->tipoConta != "Admin")
+            return response()->json(['message' => 'Only Admin can create accounts!'], 409);
         try {
 
             $user = new User([

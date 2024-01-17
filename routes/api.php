@@ -18,11 +18,11 @@ use App\Http\Controllers\UserController;
 */
 
 // Route for user registration
-Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']); 
 
 // Route for retrieving user information using token authentication
 Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/register', [AuthController::class, 'register']);
     Route::get('/getUsers', [UserController::class, 'getUsers']);
     Route::get('/getAllObservations', [UserController::class, 'getAllObservations']);
     Route::post('/createObservation', [UserController::class, 'createObservation']);
