@@ -6,7 +6,7 @@ use App\Models\User;
 
 class Observation extends Model
 {
-    protected $fillable = ['user_id', 'descricao', 'descricao', 'sala', 'dataHora'];
+    protected $fillable = ['user_id', 'descricao', 'descricao', 'sala', 'dataHora', 'verificado'];
 
     public function user()
     {

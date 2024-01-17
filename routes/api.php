@@ -27,6 +27,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/getAllObservations', [UserController::class, 'getAllObservations']);
     Route::post('/createObservation', [UserController::class, 'createObservation']);
     Route::get('/getObservationBySala/{sala}', [UserController::class, 'getObservationBySala']);
-    
-    
 });

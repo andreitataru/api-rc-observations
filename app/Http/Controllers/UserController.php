@@ -38,7 +38,8 @@ class UserController extends Controller
 
             $user = Auth::user();
 
-            if ($user->tipoConta == "prof"){
+            if ($user->tipoConta == "Professor"){
+                $observation->user_id = $user->id;
                 $observation->save();
         
                 return response()->json([
@@ -51,7 +52,7 @@ class UserController extends Controller
     
         } catch (\Exception $e) {
             //return error message
-            return response()->json(['message' => 'Erro!'], 409);
+            return response()->json(['message' => 'Erro!' . $e], 409);
         }
     }
 

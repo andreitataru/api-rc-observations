@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('descricao');
             $table->string('sala');
             $table->dateTime('dataHora', $precision = 0);
+            $table->boolean('verificado')->default(false);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

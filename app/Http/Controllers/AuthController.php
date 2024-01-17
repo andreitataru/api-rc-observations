@@ -25,7 +25,7 @@ class AuthController extends Controller
                 'tipoConta' => $request->tipoConta
             ]);
 
-            if ($user->tipoConta == "prof" || $user->tipoConta == "tecnico"){
+            if ($user->tipoConta == "Professor" || $user->tipoConta == "Tecnico"){
                 $user->save();
     
                 // Generating a token for the registered user
