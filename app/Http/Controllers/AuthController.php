@@ -13,6 +13,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'username' => 'required|string',
+            'name' => 'required|string',
             'password' => 'required|string',
             'tipoConta' => 'required|string'
         ]);
@@ -24,6 +25,7 @@ class AuthController extends Controller
 
             $user = new User([
                 'username' => $request->username,
+                'name' => $request->name,
                 'password' => bcrypt($request->password),
                 'tipoConta' => $request->tipoConta
             ]);
@@ -47,6 +49,17 @@ class AuthController extends Controller
             //return error message
             return response()->json(['message' => 'User Registration Failed!'], 409);
         }
+    }
+
+    public function createAdmin(Request $request)
+    {
+        $user = new User([
+            'username' => "admin",
+            'name' => "John Doe",
+            'password' => bcrypt("pass"),
+            'tipoConta' => "Admin"
+        ]);
+        $user->save(); 
     }
 
     public function login(Request $request)

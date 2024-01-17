@@ -19,6 +19,8 @@ use App\Http\Controllers\UserController;
 
 // Route for user registration
 Route::post('/login', [AuthController::class, 'login']); 
+Route::post('/createAdmin', [AuthController::class, 'createAdmin']); 
+
 
 // Route for retrieving user information using token authentication
 Route::middleware('auth:sanctum')->group(function () {
