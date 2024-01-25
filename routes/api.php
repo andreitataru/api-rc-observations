@@ -25,6 +25,7 @@ Route::post('/createAdmin', [AuthController::class, 'createAdmin']);
 // Route for retrieving user information using token authentication
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/getProfile', [UserController::class, 'getProfile']);
     Route::get('/getUsers', [UserController::class, 'getUsers']);
     Route::get('/getAllObservations', [UserController::class, 'getAllObservations']);
     Route::post('/createObservation', [UserController::class, 'createObservation']);

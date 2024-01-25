@@ -32,9 +32,6 @@ class AuthController extends Controller
 
             if ($user->tipoConta == "Professor" || $user->tipoConta == "Tecnico"){
                 $user->save();
-    
-                // Generating a token for the registered user
-                $token = $user->createToken('authToken')->plainTextToken;
         
                 return response()->json([
                     'user' => $user,

@@ -9,6 +9,9 @@ use App\Models\Observation;
 
 class UserController extends Controller
 {
+    public function getProfile(){
+        return response()->json(['profile' => Auth::user()], 200);
+    }
 
     public function getUsers()
     {
