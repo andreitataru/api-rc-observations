@@ -34,8 +34,7 @@ class AuthController extends Controller
                 $user->save();
         
                 return response()->json([
-                    'user' => $user,
-                    'token' => $token,
+                    'user' => $user
                 ], 201);
             }
             else{
