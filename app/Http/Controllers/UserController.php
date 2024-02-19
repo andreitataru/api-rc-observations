@@ -77,5 +77,26 @@ class UserController extends Controller
         }
     }
 
+    public function resolveObservation($observationID)
+    {
+        try {
+
+            $user = Auth::user();
+
+            if ($user->tipoConta == "Tecnico"){
+
+                $observation = Observation::where('id', $observationID)->first();
+                $observation->verificado = 1;
+
+                return response()->json(['message' => 'Resolvido'], 409);
+            }
+        }
+
+         catch (\Exception $e) {
+            //return error message
+            return response()->json(['message' => 'Erro!'], 409);
+        }
+    }
+
 
 }
