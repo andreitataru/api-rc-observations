@@ -77,15 +77,19 @@ class UserController extends Controller
         }
     }
 
-    public function resolveObservation($observationID)
+    public function resolveObservation(Request $request)
     {
+
+        $request->validate([
+            'idObservation' => 'required',
+        ]);
         try {
 
             $user = Auth::user();
 
             if ($user->tipoConta == "Tecnico"){
 
-                $observation = Observation::where('id', $observationID)->first();
+                $observation = Observation::where('id', $request->idObservation)->first();
                 $observation->verificado = 1;
 
                 return response()->json(['message' => 'Resolvido'], 409);
