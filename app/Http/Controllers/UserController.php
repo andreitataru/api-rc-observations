@@ -91,7 +91,7 @@ class UserController extends Controller
 
                 $observation = Observation::where('id', $request->idObservation)->first();
                 $observation->verificado = 1;
-
+                $observation->save();
                 return response()->json(['message' => 'Resolvido'], 200);
             }
         }
